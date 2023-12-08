@@ -1,0 +1,20 @@
+{
+  "model_name": "SeanLee97/angle-bert-base-uncased-nli-en-v1",
+  "device": "cuda:0",
+  "tokenizer": {
+    "max_length": 512,
+    "padding": true,
+    "truncation": true
+  },
+  "epochs": 5,
+  "pool": "angle",
+  "reset": false,
+  "scheduler": "warmuplinear",
+  "warmup_steps": 500,
+  "optimizer": "AdamW",
+  "weight_decay": 0.1,
+  "learning_rate": 1e-5,
+  "batch_size": 24,
+  "id": "TP3",
+  "dataset": "only_report"
+}
