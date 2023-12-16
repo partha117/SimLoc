@@ -1,0 +1,19 @@
+{
+  "model_name": "roberta-base",
+  "device": "cuda:0",
+  "tokenizer": {
+    "max_length": 512,
+    "padding": true,
+    "truncation": true
+  },
+  "epochs": 5,
+  "scheduler": "linear",
+  "warmup_steps": 500,
+  "optimizer": "AdamW",
+  "weight_decay": 0.1,
+  "learning_rate": 1e-4,
+  "batch_size": 28,
+  "id": "TP5",
+  "mlm_prob": 0.40
+  "dataset": "only_report"
+}

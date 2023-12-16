@@ -1,0 +1,26 @@
+{
+  "model_name_or_path": "/project/def-m2nagapp/partha9/SimLoc/Output/tsdae_modelTP7/37500/",
+  "load_trained": false,
+  "embedding_dimension": 768,
+  "output_dimension": 768,
+  "device": "cuda:0",
+  "tokenizer": {
+    "max_length": 512,
+    "padding": true,
+    "truncation": true
+  },
+  "epochs": 5,
+  "warmup_steps": 500,
+  "optimizer": "AdamW",
+  "scheduler": "warmuplinear",
+  "weight_decay": 0.1,
+  "learning_rate": 1e-5,
+  "batch_size": 16,
+  "id": "TF7",
+  "pool": "mean",
+  "residual_layer": 0,
+  "save_limit": 3,
+  "save_steps": 500,
+  "metrics": ["precision_score", "recall_score", "f1_score", "accuracy_score"],
+  "dataset": "dup_br_detection_data"
+}

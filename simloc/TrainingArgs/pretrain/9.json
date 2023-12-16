@@ -1,0 +1,22 @@
+{
+  "model_name": "/home/p9chakra/MY_DRIVES/ProgramFiles/SimLoc/Output/tsdae_modelTP4/64500",
+  "device": "cpu",
+  "tokenizer": {
+    "max_length": 512,
+    "padding": "max_length",
+    "truncation": true
+  },
+  "epochs": 5,
+  "pool": "mean",
+  "scheduler": "warmuplinear",
+  "reset": false,
+  "warmup_steps": 500,
+  "optimizer": "AdamW",
+  "weight_decay": 0.1,
+  "learning_rate": 1e-5,
+  "batch_size": 40,
+  "loss": "NTXentLoss(model=model, tau=train_args.tau)",
+  "tau": 0.3,
+  "id": "TP8",
+  "dataset": "bug_localization"
+}
