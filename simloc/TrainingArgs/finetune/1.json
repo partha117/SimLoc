@@ -1,7 +1,7 @@
 {
-  "model_name_or_path": "roberta-base",
+  "model_name_or_path": "/project/def-m2nagapp/partha9/SimLoc/Output/tsdae_modelTP2/39000/",
   "embedding_dimension": 768,
-  "output_dimension": "",
+  "output_dimension": 768,
   "device": "cuda:0",
   "tokenizer": {
     "max_length": 512,
@@ -11,12 +11,15 @@
   "epochs": 5,
   "warmup_steps": 500,
   "optimizer": "AdamW",
-  "scheduler": "LinearLR",
-  "criterion": "BCELoss",
+  "scheduler": "warmuplinear",
   "weight_decay": 0.1,
-  "learning_rate": 1e-4,
-  "batch_size": 28,
-  "id": "TP5",
+  "learning_rate": 1e-5,
+  "batch_size": 20,
+  "id": "TF1",
+  "pool": null,
+  "residual_layer": 0,
+  "save_limit": 3,
+  "save_steps": 500,
   "metrics": ["precision_score", "recall_score", "f1_score", "accuracy_score"],
-  "dataset": "only_report"
+  "dataset": "dup_br_detection_data"
 }

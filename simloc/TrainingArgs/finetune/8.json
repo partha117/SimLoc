@@ -16,7 +16,7 @@
   "weight_decay": 0.1,
   "learning_rate": 1e-5,
   "batch_size": 16,
-  "id": "TF7",
+  "id": "TF8",
   "pool": "mean",
   "residual_layer": 0,
   "save_limit": 3,

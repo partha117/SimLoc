@@ -1,5 +1,5 @@
 {
-  "model_name": "microsoft/codebert-base",
+  "model_name": "/home/partha9/projects/def-m2nagapp/partha9/SimLoc/Output/mlm_modelTP6/checkpoint-6600/",
   "device": "cuda:0",
   "tokenizer": {
     "max_length": 512,
@@ -7,14 +7,14 @@
     "truncation": true
   },
   "epochs": 5,
-  "pool": "angle",
+  "pool": "mean",
   "scheduler": "warmuplinear",
-  "reset": true,
+  "reset": false,
   "warmup_steps": 500,
   "optimizer": "AdamW",
   "weight_decay": 0.1,
   "learning_rate": 1e-5,
   "batch_size": 16,
-  "id": "TP4",
+  "id": "TP7",
   "dataset": "only_report"
 }

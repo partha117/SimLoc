@@ -1,5 +1,5 @@
 {
-  "model_name_or_path": "/project/def-m2nagapp/partha9/SimLoc/Output/tsdae_modelTP1/37000/",
+  "model_name_or_path": "/project/def-m2nagapp/partha9/SimLoc/Output/tsdae_modelTP3/38000/",
   "load_trained": false,
   "embedding_dimension": 768,
   "output_dimension": 768,
@@ -15,8 +15,9 @@
   "scheduler": "warmuplinear",
   "weight_decay": 0.1,
   "learning_rate": 1e-5,
-  "batch_size": 20,
-  "id": "TF2",
+  "batch_size": 16,
+  "id": "TF3",
+  "pool": "angle",
   "residual_layer": 0,
   "save_limit": 3,
   "save_steps": 500,

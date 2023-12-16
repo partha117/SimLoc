@@ -1,12 +1,12 @@
 {
-  "model_name": "/home/p9chakra/MY_DRIVES/ProgramFiles/SimLoc/Output/tsdae_modelTP4/64500",
-  "device": "cpu",
+  "model_name": "/project/def-m2nagapp/partha9/SimLoc/Output/tsdae_modelTP7/37500/",
+  "device": "cuda:0",
   "tokenizer": {
     "max_length": 512,
     "padding": "max_length",
     "truncation": true
   },
-  "epochs": 5,
+  "epochs": 10,
   "pool": "mean",
   "scheduler": "warmuplinear",
   "reset": false,
@@ -15,8 +15,8 @@
   "weight_decay": 0.1,
   "learning_rate": 1e-5,
   "batch_size": 40,
-  "loss": "NTXentLoss(model=model, tau=train_args.tau)",
+  "loss": "MultipleNegativesRankingLoss(model)",
   "tau": 0.3,
-  "id": "TP8",
+  "id": "TP9",
   "dataset": "bug_localization"
 }
