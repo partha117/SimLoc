@@ -1,5 +1,5 @@
 {
-  "model_name_or_path": "/project/def-m2nagapp/partha9/SimLoc/Output/tsdae_modelTP7/37500/",
+  "model_name_or_path": "/project/def-m2nagapp/partha9/SimLoc/Output/summary_modelTP8/9820/",
   "load_trained": false,
   "embedding_dimension": 768,
   "output_dimension": 768,

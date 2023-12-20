@@ -9,4 +9,4 @@
 #SBATCH --mail-type=ALL
 export WANDB_API_KEY=a67d6929d5168a0c365f4e73fe150ec7302e2824
 export CUDA_LAUNCH_BLOCKING=1
-python /home/partha9/SimLoc/simloc/report/finetune/DuplicateDetection.py --config_path /home/partha9/SimLoc/simloc/TrainingArgs/finetune/7.json --save_path /project/def-m2nagapp/partha9/SimLoc/Output/finetune --data_path /project/def-m2nagapp/partha9/SimLoc/Data/Processed/
+python /home/partha9/SimLoc/simloc/report/finetune/DuplicateDetection.py --config_path /home/partha9/SimLoc/simloc/TrainingArgs/finetune/10.json --save_path /project/def-m2nagapp/partha9/SimLoc/Output/finetune --data_path /project/def-m2nagapp/partha9/SimLoc/Data/Processed/

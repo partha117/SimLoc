@@ -5,7 +5,7 @@ from pathlib import Path
 from report.pretrain.TSDAE_Training import create_arg_parser
 
 sys.path.append(str(Path(__file__).resolve().parents[1]))
-from datasets import Dataset
+from datasets import Dataset, DatasetDict
 from torch.utils.data import Dataset as TDataset
 from transformers import AutoConfig, AutoModel, AutoTokenizer, AutoModelForMaskedLM, AutoModelForCausalLM, \
     DataCollatorForLanguageModeling, Trainer, TrainingArguments
@@ -36,9 +36,9 @@ class ReportDataset(TDataset):
                 self.tokenize_function,
                 batched=True,
                 num_proc=4,
-                remove_columns=[self.text_column_name],
+                remove_columns=raw_datasets.column_names,
                 desc="Running tokenizer on dataset line_by_line",
-            )
+            ).shuffle()
             self.tokenized_datasets.set_format('torch', columns=['input_ids'], dtype=torch.long)
 
     def tokenize_function(self, examples):
@@ -100,13 +100,13 @@ if __name__ == "__main__":
     # assert len(sys.argv) >= 2, "Needs two arguments"
     #
 
-    # path = "../TrainingArgs/pretrain/5.json"
+    # path = "../../TrainingArgs/pretrain/10.json"
     # config = Configuration(path=path)
     # save_path = f"../../Output/{config.id}"
-    # data_path = "../../Data/Processed/"
+    # data_path = "../../../Data/Processed/"
     # dry_run = False
 
-    parser = create_arg_parser("TSDAE")
+    parser = create_arg_parser("MLM")
     args = parser.parse_args()
     path = args.config_path
     config = Configuration(path=path)
@@ -142,14 +142,17 @@ if __name__ == "__main__":
     else:
         tokenizer_base = AutoTokenizer.from_pretrained(config.model_name)
     logging.info("Loading dataset")
-    dataset = Dataset.load_from_disk(os.path.join(data_path, config.dataset)).shuffle()
     if config.dataset == "title_body":
+        logging.info(f"Loading dataset {config.dataset}")
+        dataset = DatasetDict.load_from_disk(os.path.join(data_path, config.dataset))["train"]
         dataset = dataset.map(lambda x: {"bug_report": x['title'] + " " + x['body']})
+    else:
+        dataset = Dataset.load_from_disk(os.path.join(data_path, config.dataset))
     if dry_run:
         exit(0)
-    logging.info("Training tokenizer")
 
-    tokenizer = tokenizer_base.train_new_from_iterator(dataset['bug_report'], 50265,
+    if not hasattr(config, "pretrain_tokenizer") or not config.use_pretrained_tokenizer:
+        tokenizer = tokenizer_base.train_new_from_iterator(dataset['bug_report'], 50265,
                                                        show_progress=True)
     tokenizer.save_pretrained(os.path.join(save_path, "tokenizer"))
     logging.info("Starting training.")

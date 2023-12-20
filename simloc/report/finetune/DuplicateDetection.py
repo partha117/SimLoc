@@ -98,7 +98,7 @@ class FineTuneForDuplicateDetection:
 
 
 if __name__ == "__main__":
-    # path = "../../TrainingArgs/finetune/1.json"
+    # path = "../../TrainingArgs/finetune/10.json"
     # config = Configuration(path=path)
     # save_path = f"/home/p9chakra/MY_DRIVES/ProgramFiles/SimLoc/Output/{config.id}"
     # data_path = "/home/p9chakra/MY_DRIVES/ProgramFiles/SimLoc/Data/Processed/"
